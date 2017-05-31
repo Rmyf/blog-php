@@ -1,4 +1,5 @@
 <?php
+
 $titre = $_POST['titre'];
 
 if(!is_dir('posts')){
@@ -7,13 +8,10 @@ if(!is_dir('posts')){
 
 $create = fopen('posts/' . $titre . '.txt', "w+");
 
-
-
 fwrite($create,$titre);
 
 $txt = $_POST['txtarea'];
 fwrite($create,$txt);
 fclose($create);
-
 
 ?>
