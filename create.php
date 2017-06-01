@@ -8,10 +8,11 @@ if(!is_dir('posts')){
 
 $create = fopen('posts/' . $titre . '.txt', "w+");
 
-fwrite($create,$titre);
 
-$txt = $_POST['txtarea'];
+
+$txt = $_POST['contents'];
 fwrite($create,$txt);
+
 fclose($create);
 
 ?>

@@ -15,11 +15,13 @@
 $dossier = 'posts';
 $contenu_dossier = scandir($dossier);
 foreach ($contenu_dossier as $key => $value){
- if(is_file('posts/' . $value))
-     
-    echo '<li>'. $value. '</li>';
-    
+ if(is_file('posts/' . $value)){
 
+ 
+     
+    echo '<li> <h2>'. basename($value,'.txt').'</h2></li>';}
+    $content = file_get_contents('posts/'.$value);
+       echo '<p>'.$content.'</p> ';
 }
 
 ?>
