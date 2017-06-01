@@ -14,14 +14,16 @@
 
 $dossier = 'posts';
 $contenu_dossier = scandir($dossier);
-foreach ($contenu_dossier as $key => $value){
- if(is_file('posts/' . $value)){
-
- 
-     
-    echo '<li> <h2>'. basename($value,'.txt').'</h2></li>';}
-    $content = file_get_contents('posts/'.$value);
-       echo '<p>'.$content.'</p> ';
+foreach ($contenu_dossier as $file){
+    if(is_file('posts/' . $file)) {
+        echo '<li> <h2>'. basename($file,'.txt').'</h2></li>';
+        $content = file_get_contents('posts/'.$file);
+        echo '<p>'.$content.'</p> ';
+        echo '<form method="GET" action="delete.php">
+            <input type="hidden" name="filename" value="'.$file.'">
+            <input type = "submit" value="delete">
+            </form>';
+    }
 }
 
 ?>
