@@ -21,7 +21,8 @@ foreach ($contenu_dossier as $file){
         echo '<p>'.$content.'</p> ';
         echo '<form method="GET" action="delete.php">
             <input type="hidden" name="filename" value="'.$file.'">
-            <input type = "submit" value="delete">
+            <input type = "submit" value="Delete">
+            <input type = "submit" value="Modify">
             </form>';
     }
 }
