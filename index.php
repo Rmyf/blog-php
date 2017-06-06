@@ -1,4 +1,5 @@
 <html><!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,15 +18,22 @@ $contenu_dossier = scandir($dossier);
 foreach ($contenu_dossier as $file){
     if(is_file('posts/' . $file)) {
         echo '<li> <h2>'. basename($file,'.txt').'</h2></li>';
-        $content = file_get_contents('posts/'.$file);
-        echo '<p>'.$content.'</p> ';
+        $txt = file_get_contents('posts/'.$file);
+        echo '<p>'.$txt.'</p> ';
         echo '<form method="GET" action="delete.php">
             <input type="hidden" name="filename" value="'.$file.'">
             <input type = "submit" value="Delete">
-            <input type = "submit" value="Modify">
             </form>';
+
+        echo '<form method="GET" action="create.php">
+             <input type="hidden" name="filename" value="'.$file.'">
+             <input type = "submit" value="Edit">
+             </form>';
+
     }
 }
+
+
 
 ?>
    </ul>
